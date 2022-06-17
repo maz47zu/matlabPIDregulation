@@ -14,8 +14,7 @@ h=0.001;
 
 t=0:h:60;
 n=length(t);
-z=[0;pi/16;0;0];
-%z0=[0;pi/16;0;0]; alfaprim, alfa, psiprim, psi
+z=[0;pi/180;0;0]; %alfaprim, alfa, psiprim, psi
 e_0=0;
 I=0;
 D=0;
@@ -38,11 +37,12 @@ for i=1:n
     Tau(i) = tau;
 end
 
-subplot(3,1,1), plot(t,alfa,':k',t,alfaC,'r')
-ylabel('$\alpha$','Interpreter', 'Latex')
+subplot(3,1,1), plot(t,alfa*(180/pi),':k',t,alfaC*(180/pi),'r')
+ylabel('$\alpha [^\circ]$','Interpreter', 'Latex')
 
 subplot(3,1,2), plot(t,Tau)
-ylabel('$\tau$','Interpreter', 'Latex')
+ylabel('$\tau [Nm]$','Interpreter', 'Latex')
 
 subplot(3,1,3), plot(t,psi)
-ylabel('$\dot{\psi}$','Interpreter', 'Latex')
+ylabel('$\dot{\psi}{[rad/s]}$','Interpreter', 'Latex')
+xlabel('t [s]')
